@@ -1,2 +1,4 @@
 # Project-Euler
-Repository for project Euler solutions
+Repository for some project euler solutions
+
+Please do not cheat on your runs
