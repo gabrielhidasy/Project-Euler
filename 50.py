@@ -29,7 +29,6 @@ def sequence_primes_slow(n):
                     max_window = end-begin
                     plist = prime_list[begin:end]
                 end = end+1
-    
     return max_window, sum(plist)
 
 def sequence_primes(n):
@@ -49,7 +48,8 @@ def sequence_primes(n):
                     max_prime = sum(prime_list[begin:end])
                     plist = prime_list[begin:end]
             end = end + 1
-            if end >= len(prime_list) or sum(prime_list[begin:end]) > prime_list[-1]:
+            if end >= len(prime_list) or sum(prime_list[begin:max(begin+max_window, end)]) > prime_list[-1]:
                 break
     return max_window, max_prime
-sequence_primes(1000000)
+for i in range(6, 7):
+    print(sequence_primes(10**i))
