@@ -8,10 +8,10 @@ def primes(n):
                     sieve[i*y] = 0
                 except:
                     break
-    return [2] + [i for i in range(3,n,2) if sieve[i]]
+    return [2] + [i for i in range(3,n,2) if sieve[i]], sieve
 
-def sequence_primes(n):
-    prime_list = primes(n)
+def sequence_primes_slow(n):
+    prime_list, _ = primes(n)
     prime_list.reverse()
     max_window = 0
     window = 0
@@ -30,5 +30,26 @@ def sequence_primes(n):
                     plist = prime_list[begin:end]
                 end = end+1
     
-    return max_window, plist, sum(plist)
-print(sequence_primes(1000000))
+    return max_window, sum(plist)
+
+def sequence_primes(n):
+    prime_list, _ = primes(n)
+    max_window = 0
+    max_prime = 0
+    max_sum = 0
+    plist = []
+    begin = 0
+    for index, prime in enumerate(prime_list):
+        begin = index
+        end = index
+        while True:
+            if sum(prime_list[begin:end]) in prime_list:
+                if max_window < end-begin:
+                    max_window = end-begin
+                    max_prime = sum(prime_list[begin:end])
+                    plist = prime_list[begin:end]
+            end = end + 1
+            if end >= len(prime_list) or sum(prime_list[begin:end]) > prime_list[-1]:
+                break
+    return max_window, max_prime
+sequence_primes(1000000)
