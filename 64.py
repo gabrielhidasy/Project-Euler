@@ -3,7 +3,7 @@ from math import floor
 
 def CFcalc(S):
     if S**(1 / 2) == floor(S**(1 / 2)):
-        return [0]  # Tricky, return an odd list to make it fail the even test
+        return [int(S**(1 / 2))]
     m0 = 0
     d0 = 1
     a0 = floor(S**(1 / 2))
