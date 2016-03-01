@@ -1,4 +1,5 @@
-# Project-Euler
-Repository for some project euler solutions
+# Repository for project Euler solutions,
+If you did not solve a problem by yourself, academic honour code mandates you not to look
 
-Please do not cheat on your runs
+# TODO:
+* Encrypt codes with the SHA256 of the solutions as key,
